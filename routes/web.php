@@ -11,6 +11,30 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [
+  'uses' => 'WelcomeController@mainMenu'
+]);
+
+Route::get('/students', [
+  'uses' => 'WelcomeController@alumnosTable'
+]);
+
+Route::get('/profesors', [
+  'uses' => 'WelcomeController@profesoresTable'
+]);
+
+Route::get('/year', [
+  'uses' => 'WelcomeController@gradoTable'
+]);
+
+Route::get('/class', [
+  'uses' => 'WelcomeController@seccionTable'
+]);
+
+Route::post('/create', [
+  'uses' => 'CrudsController@create'
+]);
+
+Route::post('/read', [
+  'uses' => 'CrudsController@read'
+]);
